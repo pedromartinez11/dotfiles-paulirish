@@ -1,4 +1,3 @@
-
 # Load our dotfiles like ~/.bash_prompt, etc…
 #   ~/.extra can be used for settings you don’t want to commit,
 #   Use it to configure your PATH, thus it being first in line.
@@ -110,6 +109,9 @@ fi;
 if type __git_complete &> /dev/null; then
     __git_complete g __git_main
 fi;
+
+# fancy ctrl-r completion
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
