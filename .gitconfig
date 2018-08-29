@@ -18,6 +18,8 @@
 
 	reup = rebase-update # depot_tools specific
 	git = !exec git
+	br = branch
+	last = log -1 HEAD
 
 [core]
 	excludesfile = ~/.gitignore
