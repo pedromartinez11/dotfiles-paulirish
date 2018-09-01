@@ -20,6 +20,7 @@
 	git = !exec git
 	br = branch
 	last = log -1 HEAD
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 
 [core]
 	excludesfile = ~/.gitignore
@@ -120,3 +121,9 @@
 [user]
 	email = pedromartinez11@gmail.com
 	name = Pedro
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
